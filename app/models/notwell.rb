@@ -3,6 +3,14 @@ class Notwell < ApplicationRecord
 
 
   def self.find_notwell_comments(id)
-    Notwell.includes(:retro).where(retro_id: id )
+    a = Notwell.includes(:retro).where(retro_id: id)
+    h = {}
+
+    a.each do |x|
+      h[x.id] = {'value': x.comment}
+    end
+
+    h
+
   end
 end

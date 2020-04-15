@@ -3,6 +3,13 @@ class Improve < ApplicationRecord
 
 
   def self.find_improve_comments(id)
-    Continue.includes(:retro).where(retro_id: id )
+    a = Improve.includes(:retro).where(retro_id: id)
+    h = {}
+
+    a.each do |x|
+      h[x.id] = {'value': x.comment}
+    end
+
+    h
   end
 end

@@ -7,11 +7,10 @@ class RetroController < ApplicationController
     notwell = Notwell.find_notwell_comments(id)
     improve = Improve.find_improve_comments(id)
     continue = Continue.find_continue(id)
-    # binding.pry
+
     b = { well: well , notwell: notwell, improve: improve, continue: continue}
 
     render json: b
-
   end
 
   def create

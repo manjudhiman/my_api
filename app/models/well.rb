@@ -3,7 +3,14 @@ class Well < ApplicationRecord
 
 
   def self.find_well(id)
-    Well.includes(:retro).where(retro_id: id )
+    a = Well.includes(:retro).where(retro_id: id)
+    h = {}
+
+    a.each do |x|
+      h[x.id] = {'value': x.comment}
+    end
+
+    h
   end
 
 end
