@@ -55,6 +55,21 @@ Body:
     }
     
 ```
+
+```clickhouse
+To Create a Retro with id :
+
+
+/create_retro?retro=68
+
+```
+Response:
+```clickhouse
+{
+    "type": "Retro",
+    "id": 68
+}
+```
     
     
 ## For Get api
@@ -95,3 +110,24 @@ Response:
     }
 }
    ```
+   
+To get the retroIds:
+
+```clickhouse
+/retro_details
+```
+Response
+```
+[
+    1,
+    2,
+    3,
+    4,
+    10,
+    66,
+    67,
+    68,
+    100
+]
+
+```
