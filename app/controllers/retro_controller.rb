@@ -56,4 +56,22 @@ class RetroController < ApplicationController
       end
     end
   end
+
+
+  # creates a retro with id
+  def create_retro
+    t = Retro.find_or_create_by(id: params['retro'])
+
+    render json: t
+  end
+
+
+  # Returns the retro_ids array
+  def get_retro_details
+    retro_details = Retro.find_retro_details
+    puts retro_details.inspect
+
+    render json: retro_details
+
+  end
 end
