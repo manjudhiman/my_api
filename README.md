@@ -14,6 +14,24 @@
 
 ## For Post api
 
+1. To Create a Retro with id :
+
+```clickhouse
+
+
+/create_retro?retro=68
+
+```
+Response:
+```clickhouse
+{
+    "type": "Retro",
+    "id": 68
+}
+```
+
+2. To Create the Retro
+
 ``/retro_info?retro=10``
 
 Body:
@@ -56,23 +74,12 @@ Body:
     
 ```
 
-```clickhouse
-To Create a Retro with id :
 
-
-/create_retro?retro=68
-
-```
-Response:
-```clickhouse
-{
-    "type": "Retro",
-    "id": 68
-}
-```
     
     
 ## For Get api
+
+3. To Get the details for Retro with DD
 ```clickhouse
   /retro_info?retro=10
 ```
@@ -111,7 +118,7 @@ Response:
 }
    ```
    
-To get the retroIds:
+4. To get the all retroIds:
 
 ```clickhouse
 /retro_details
