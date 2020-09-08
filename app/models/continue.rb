@@ -11,4 +11,15 @@ class Continue < ApplicationRecord
 
      h
   end
+
+
+  def self.get_all_comments(id)
+    a = Continue.includes(:retro).where(retro_id: id)
+    arr = []
+
+    a.each do |x|
+      arr << x.comment
+    end
+    arr
+  end
 end

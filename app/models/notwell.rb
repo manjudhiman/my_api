@@ -13,4 +13,15 @@ class Notwell < ApplicationRecord
     h
 
   end
+
+
+  def self.get_all_comments(id)
+    a = Notwell.includes(:retro).where(retro_id: id)
+    arr = []
+
+    a.each do |x|
+      arr << x.comment
+    end
+    arr
+  end
 end

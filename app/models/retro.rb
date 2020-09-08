@@ -17,7 +17,7 @@ class Retro < ApplicationRecord
     retro_ids = []
 
     for i in retro_details do
-      retro_ids.push(i.id)
+      retro_ids  << (i.id)
     end
 
     return retro_ids.sort

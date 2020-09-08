@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   post 'create_retro', to: 'retro#create_retro'
   get 'retro_details', to: 'retro#get_retro_details'
+  get 'details', to: 'retro#get_all_details'
 
 end

@@ -138,3 +138,30 @@ Response
 ]
 
 ```
+
+
+5. Get all Retro details:
+```clickhouse
+/details?retro=9
+```
+Response
+```clickhouse
+[
+    {
+        "well": "Story planning",
+        "notwell": "Code reviews",
+        "improve": "Code reviews",
+        "continue": "Code review"
+    },
+    {
+        "well": "Story Pointing",
+        "continue": "Story planning"
+    },
+    {
+        "well": "Reviews"
+    },
+    {
+        "well": "test1"
+    }
+]
+```

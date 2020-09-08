@@ -74,4 +74,27 @@ class RetroController < ApplicationController
     render json: retro_details
 
   end
+
+  def get_all_details
+    id = params[:retro].to_i
+    well =  Well.get_all_comments(id)
+    notwell = Notwell.get_all_comments(id)
+    improve = Improve.get_all_comments(id)
+    continue = Continue.get_all_comments(id)
+
+    l = [well.length, notwell.length, improve.length, continue.length].max
+
+    arr = []
+
+    for i in 0...l do
+      h = {}
+      h['well'] = well[i] if well[i]
+      h['notwell'] = notwell[i] if notwell[i]
+      h['improve'] = improve[i] if improve[i]
+      h['continue'] = continue[i] if continue[i]
+      arr << h
+    end
+
+    render json: arr
+  end
 end
