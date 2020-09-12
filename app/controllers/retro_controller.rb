@@ -1,6 +1,13 @@
 require 'pry'
 class RetroController < ApplicationController
 
+    OPTIONS = {
+      'well': Well,
+      'notwell': Notwell,
+      'improve': Improve,
+      'continue': Continue
+  }.with_indifferent_access
+
   def show
     id = params[:retro].to_i
     well =  Well.find_well(id)
@@ -88,13 +95,21 @@ class RetroController < ApplicationController
 
     for i in 0...l do
       h = {}
-      h['well'] = well[i] if well[i]
-      h['notwell'] = notwell[i] if notwell[i]
-      h['improve'] = improve[i] if improve[i]
-      h['continue'] = continue[i] if continue[i]
+      h[:well] = well[i] if well[i]
+      h[:notwell] = notwell[i] if notwell[i]
+      h[:improve] = improve[i] if improve[i]
+      h[:continue] = continue[i] if continue[i]
       arr << h
     end
 
     render json: arr
+  end
+
+
+ # Deletes the record
+  def destroy
+    res = OPTIONS[params[:type]].find(params[:key]).destroy
+
+    render json: res
   end
 end

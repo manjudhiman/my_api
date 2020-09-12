@@ -165,3 +165,10 @@ Response
     }
 ]
 ```
+
+
+6. Delete the comment
+
+```clickhouse
+/delete?retro=1&type=well&key=4
+```
